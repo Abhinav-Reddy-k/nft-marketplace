@@ -53,4 +53,9 @@ contract NFTMarketplace {
     constructor() ERC721("Metaverse Tokens", "METT") {
         owner = payable(msg.sender);
     }
+
+    function updateListingPrice(uint256 _listingPrice) public payable {
+    require(owner == msg.sender, "Only marketplace owner can update listing price.");
+    listingPrice = _listingPrice;
+  }
 }
